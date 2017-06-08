@@ -27,7 +27,7 @@
 	</header>
 	<nav id="sidebar">
 		<ul>
-			<li>
+			<li class="first">
 				<img src="./index/image/menu_1.png"/>
 				<p>Selecione</p>
 			</li>
@@ -46,53 +46,108 @@
 		</ul>
 	</nav>
 	<section id="content">
-		<heading>
+		<header>
 			<div class="container-fluid">
 				<h2>Selecione</h2>
 				<p>Para adicionar mais produtos à sua loja, faça uma busca, utilizando os filtros abaixo e coloque na sua loja. Boas vendas!</p>
 			</div>
-		</heading>
+		</header>
 		<article>
 			<h3>Filtros</h3>
 			<form action="#">
-				<div class="container-fluid">
-					<label for="from">De</label>
-					<input type="text" name="from" id="from" placeholder="Ex ...Rio de Janeiro"/>
-					<label for="to">Para</label>
-					<input type="text" name="to" id="to" placeholder="Ex ...Nova Iorque"/>
-					<label for="type">Tipo de Pacote</label>
-					<select id="type" name="type">
-						<option value="ticket">Somente Passagem</option>
-					</select>
-					<label for="order">Ordenar por</label>
-					<select id="order" name="order">
-						<option value="">Nada</option>
-						<option value="price_asc">Preço crescente</option>
-						<option value="price_desc">Preço decrescente</option>
-						<option value="departure_date_asc">Data mais próxima</option>
-						<option value="departure_date_desc">Data mais longe</option>
-						<option value="company_asc">Companhia em ordem alfabética</option>
-						<option value="company_desc">Companhia em ordem alfabética-invertida</option>
-					</select>
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<label for="from">De</label>
+						<input type="text" name="from" id="from" placeholder="Ex ...Rio de Janeiro"/>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<label for="to">Para</label>
+						<input type="text" name="to" id="to" placeholder="Ex ...Nova Iorque"/>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<label for="type">Tipo de Pacote</label>
+						<select id="type" name="type">
+							<option value="ticket">Somente Passagem</option>
+						</select>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<label for="order">Ordenar por</label>
+						<select id="order" name="order">
+							<option value="">Nada</option>
+							<option value="price_asc">Preço crescente</option>
+							<option value="price_desc">Preço decrescente</option>
+							<option value="departure_date_asc">Data mais próxima</option>
+							<option value="departure_date_desc">Data mais longe</option>
+							<option value="company_asc">Companhia em ordem alfabética</option>
+							<option value="company_desc">Companhia em ordem alfabética-invertida</option>
+						</select>
+					</div>
 				</div>
 			</form>
 			<div id="results" ng-controller="index" data-ng-init="getTickets()">
 				<h3>Resultados:</h3>
 				<div class="row">
-					<div class="ticket col-sm-3" ng-repeat="ticket in tickets">
-						<img class="img-responsive" ng-src="{{ticket.image}}"/>
-						<h4>{{ticket.to}}</h4>
-						<p class="from_to">De {{ticket.from}} Para {{ticket.to}}</p>
-						<p class="date">{{ticket.departure_date}}</p>
-						<p class="company">{{ticket.company}}</p>
-						<p class="text first">Oferta Sujeito a disponibilidade</p>
-						<p class="text">A incluir taxas e encargos</p>
-						<p class="price_label">a partir de</p>
-						<p class="price">{{ticket.price}}</p>
+					<div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="ticket in tickets">
+						<div class="ticket">
+							<div class="pad">
+								<img class="img-responsive" ng-src="{{ticket.image}}"/>
+							</div>
+							<h4>{{ticket.to}}</h4>
+							<p class="from_to">De {{ticket.from}} Para {{ticket.to}}</p>
+							<p class="date">{{ticket.departure_date}}</p>
+							<p class="company">{{ticket.company}}</p>
+							<p class="text first">Oferta Sujeito a disponibilidade</p>
+							<p class="text">A incluir taxas e encargos</p>
+							<p class="price_label">a partir de</p>
+							<p class="price">{{ticket.price | reais}}</p>
+							<a ng-href="{{ticket.url}}" class="first"><img src="./index/image/add.png"/>Adicionar na loja</a>
+							<a ng-href="{{ticket.url}}"><img src="./index/image/arrow.png"/>Comprar</a>
+							<div class="row">
+								<div class="col-xs-2 col-xs-offset-3">
+									<img src="./index/image/facebook.png"/>
+								</div>
+								<div class="col-xs-2">
+									<img src="./index/image/google_plus.png"/>
+								</div>
+								<div class="col-xs-2">
+									<img src="./index/image/twitter.png"/>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</article>
 	</section>
+	<footer class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/"><img src="./index/image/logo.png"/></a>
+			</div>
+			<ul class="nav navbar-nav row">
+				<li class="col-xs-2">
+					<ul>
+						<li>Parceiro</li>
+						<li>CurtiVendi</li>
+						<li>O que é o CurtiVendi?</li>
+					</ul>
+				</li>
+				<li class="col-xs-2">
+					<ul>
+						<li>Nossos sites</li>
+						<li>SubmarinoViagens.com.br</li>
+					</ul>
+				</li>
+				<li class="col-xs-2">
+					<ul>
+						<li>Institucional</li>
+						<li>Termo de utilização</li>
+						<li>Comissão</li>
+						<li>Como funciona</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</footer>
 </body>
 </html>
