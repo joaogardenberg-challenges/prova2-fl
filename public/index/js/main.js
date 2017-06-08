@@ -37,7 +37,7 @@ angular.module("main", ["ngResource"])
 					order_type = arr[1];
 				}
 
-				$scope.message = "Procurando...";
+				$scope.message = "Carregando...";
 				$scope.isLoading = true;
 
 				$scope.tickets = res.query({from: from, to: to, order: order, order_type: order_type}, function() {
