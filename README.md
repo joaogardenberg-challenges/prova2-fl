@@ -14,6 +14,10 @@ Feito com: Sublime Text 3 Build 3126
 
 Heroku url: **soon...**
 
+## Live Edu
+
+Live Edu url: https://www.liveedu.tv/joaogardenberg/RLpLY-fulllab/
+
 ## MySQL
 
 **SQL para popular a tabela:**
