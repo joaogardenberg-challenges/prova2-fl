@@ -144,6 +144,10 @@ header.navbar .nav li:first-child a {
 #results h3 {
 	font-size: 14px;
 }
+#results h3 img {
+	margin-bottom: -2px;
+	vertical-align: bottom;
+}
 #results > .row > div {
 	padding: 15px 15px 0;
 }

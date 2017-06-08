@@ -37,9 +37,16 @@ angular.module("main", ["ngResource"])
 					order_type = arr[1];
 				}
 
-				console.log('From: "' + from + '", To: "' + to + '", OrderTemp: "' + orderTemp + '", Order: "' + order + '", Order_type: "' + order_type + '".');
+				$scope.message = "Procurando...";
+				$scope.isLoading = true;
 
-				$scope.tickets = res.query({from: from, to: to, order: order, order_type: order_type});
+				$scope.tickets = res.query({from: from, to: to, order: order, order_type: order_type}, function() {
+					if ($scope.tickets.length === 0)
+						$scope.message = "Nenhum resultado encontrado."
+					else
+						$scope.message = "Resultados:";
+					$scope.isLoading = false;
+				});
 			};
 		}
 	]);

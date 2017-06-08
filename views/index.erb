@@ -75,7 +75,7 @@
 				</div>
 			</form>
 			<div id="results">
-				<h3>Resultados:</h3>
+				<h3>{{message}} <img src="./index/image/loading.gif" ng-if="isLoading"/></h3>
 				<div class="row">
 					<div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="ticket in tickets">
 						<div class="ticket">
