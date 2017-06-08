@@ -15,7 +15,7 @@ get '/tickets' do
 	$order_type = "asc" unless $order_type || $order_type != ""
 
 	client = Mysql2::Client.new(
-		host: 'localhost',
+		host: 'us-cdbr-iron-east-03.cleardb.net',
 		username: 'b63406ed458aee',
 		password: '9478b56d',
 		database: 'heroku_00b354e8864d5f4',
