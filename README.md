@@ -1,4 +1,4 @@
-# Prova 2 de Estário para a Fulllab
+# Prova 2 de Estágio para a Fulllab
 
 ## Informações
 
