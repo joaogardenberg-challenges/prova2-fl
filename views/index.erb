@@ -1,10 +1,98 @@
 <!doctype html>
-<html lang="en-us">
+<html lang="en-us" ng-app="main">
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8"/>
 	<title>Prova Fulllab</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="./index/css/reset.css"/>
+	<link rel="stylesheet" href="./index/css/style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="./index/js/main.js"></script>
 </head>
 <body>
-	<h1>from: '<%= $from.to_s %>'; to: '<%= $to %>'; order: '<%= $order %>'.</h1>
+	<header class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/"><img src="./index/image/logo.png"/></a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/">Ir Para Submarino Viagens</a></li>
+				<li><a href="/">Sair</a></li>
+			</ul>
+		</div>
+	</header>
+	<nav id="sidebar">
+		<ul>
+			<li>
+				<img src="./index/image/menu_1.png"/>
+				<p>Selecione</p>
+			</li>
+			<li>
+				<img src="./index/image/menu_2.png"/>
+				<p>Meus Dados</p>
+			</li>
+			<li>
+				<img src="./index/image/menu_3.png"/>
+				<p>Minhas Vendas</p>
+			</li>
+			<li>
+				<img src="./index/image/menu_4.png"/>
+				<p>Minha loja</p>
+			</li>
+		</ul>
+	</nav>
+	<section id="content">
+		<heading>
+			<div class="container-fluid">
+				<h2>Selecione</h2>
+				<p>Para adicionar mais produtos à sua loja, faça uma busca, utilizando os filtros abaixo e coloque na sua loja. Boas vendas!</p>
+			</div>
+		</heading>
+		<article>
+			<h3>Filtros</h3>
+			<form action="#">
+				<div class="container-fluid">
+					<label for="from">De</label>
+					<input type="text" name="from" id="from" placeholder="Ex ...Rio de Janeiro"/>
+					<label for="to">Para</label>
+					<input type="text" name="to" id="to" placeholder="Ex ...Nova Iorque"/>
+					<label for="type">Tipo de Pacote</label>
+					<select id="type" name="type">
+						<option value="ticket">Somente Passagem</option>
+					</select>
+					<label for="order">Ordenar por</label>
+					<select id="order" name="order">
+						<option value="">Nada</option>
+						<option value="price_asc">Preço crescente</option>
+						<option value="price_desc">Preço decrescente</option>
+						<option value="departure_date_asc">Data mais próxima</option>
+						<option value="departure_date_desc">Data mais longe</option>
+						<option value="company_asc">Companhia em ordem alfabética</option>
+						<option value="company_desc">Companhia em ordem alfabética-invertida</option>
+					</select>
+				</div>
+			</form>
+			<div id="results" ng-controller="index" data-ng-init="getTickets()">
+				<h3>Resultados:</h3>
+				<div class="row">
+					<div class="ticket col-sm-3" ng-repeat="ticket in tickets">
+						<img class="img-responsive" ng-src="{{ticket.image}}"/>
+						<h4>{{ticket.to}}</h4>
+						<p class="from_to">De {{ticket.from}} Para {{ticket.to}}</p>
+						<p class="date">{{ticket.departure_date}}</p>
+						<p class="company">{{ticket.company}}</p>
+						<p class="text first">Oferta Sujeito a disponibilidade</p>
+						<p class="text">A incluir taxas e encargos</p>
+						<p class="price_label">a partir de</p>
+						<p class="price">{{ticket.price}}</p>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
 </body>
 </html>

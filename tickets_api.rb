@@ -3,7 +3,7 @@ require 'mysql2'
 require 'json'
 
 get '/' do
-	redirect '/tickets'
+	erb :'index'
 end
 
 get '/tickets' do
