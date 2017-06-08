@@ -4,6 +4,12 @@ angular.module("main", ["ngResource"])
 			return input ? "R$ " + parseFloat(input).toFixed(2) : "";
 		};
 	})
+	.filter("datePt", function() {
+		return function(input) {
+			var arr = input.split("-");
+			return arr[2] + "/" + arr[1] + "/" + arr[0];
+		}
+	})
 	.controller("index", ["$scope", "$resource",
 		function($scope, $resource) {
 			var res = $resource("/tickets/");
