@@ -45,7 +45,7 @@
 			</li>
 		</ul>
 	</nav>
-	<section id="content">
+	<section id="content" ng-controller="index" data-ng-init="getTickets()">
 		<header>
 			<div class="container-fluid">
 				<h2>Selecione</h2>
@@ -58,33 +58,23 @@
 				<div class="row">
 					<div class="col-lg-3 col-sm-6">
 						<label for="from">De</label>
-						<input type="text" name="from" id="from" placeholder="Ex ...Rio de Janeiro"/>
+						<input type="text" name="from" id="from" placeholder="Ex ...Rio de Janeiro" ng-model="form.from" ng-model-options="{debounce: 1000}" ng-change="getTickets()"/>
 					</div>
 					<div class="col-lg-3 col-sm-6">
 						<label for="to">Para</label>
-						<input type="text" name="to" id="to" placeholder="Ex ...Nova Iorque"/>
+						<input type="text" name="to" id="to" placeholder="Ex ...Nova Iorque" ng-model="form.to" ng-model-options="{debounce: 1000}" ng-change="getTickets()"/>
 					</div>
 					<div class="col-lg-3 col-sm-6">
 						<label for="type">Tipo de Pacote</label>
-						<select id="type" name="type">
-							<option value="ticket">Somente Passagem</option>
-						</select>
+						<select id="type" name="type" ng-model="form.type" ng-options="option.value as option.name for option in types"></select>
 					</div>
 					<div class="col-lg-3 col-sm-6">
 						<label for="order">Ordenar por</label>
-						<select id="order" name="order">
-							<option value="">Nada</option>
-							<option value="price_asc">Preço crescente</option>
-							<option value="price_desc">Preço decrescente</option>
-							<option value="departure_date_asc">Data mais próxima</option>
-							<option value="departure_date_desc">Data mais longe</option>
-							<option value="company_asc">Companhia em ordem alfabética</option>
-							<option value="company_desc">Companhia em ordem alfabética-invertida</option>
-						</select>
+						<select id="order" name="order" ng-model="form.order" ng-options="option.value as option.name for option in orders" ng-change="getTickets()"></select>
 					</div>
 				</div>
 			</form>
-			<div id="results" ng-controller="index" data-ng-init="getTickets()">
+			<div id="results">
 				<h3>Resultados:</h3>
 				<div class="row">
 					<div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="ticket in tickets">
