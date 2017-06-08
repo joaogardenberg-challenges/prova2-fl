@@ -4,7 +4,11 @@
 
 Versão do Ruby: 2.4.1
 
-Versão do AngularJS: **soon...**
+Versão do AngularJS: 1.6.4
+
+Versão do jQuery: 3.2.1
+
+Versão do Bootstrap: 3.3.7
 
 Feito no OS: Ubuntu 16.04.2 LTS (64-bit)
 
@@ -17,15 +21,3 @@ Heroku url: **soon...**
 ## Live Edu
 
 Live Edu url: https://www.liveedu.tv/joaogardenberg/RLpLY-fulllab/
-
-## MySQL
-
-**SQL para popular a tabela:**
-
-LOAD DATA LOCAL INFILE 'tickets.csv'
-INTO TABLE tickets
-CHARACTER SET utf8
-FIELDS TERMINATED BY ';'
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 LINES;

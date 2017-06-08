@@ -11,6 +11,16 @@ class M20170607_021257_TicketsMigration < Migration
 			String :url, :null => false
 			String :departure_date, :null => false
 		end
+
+		execute %q{
+			LOAD DATA LOCAL INFILE 'tickets.csv'
+			INTO TABLE tickets
+			CHARACTER SET utf8
+			FIELDS TERMINATED BY ';'
+			ENCLOSED BY '"'
+			LINES TERMINATED BY '\n'
+			IGNORE 1 LINES;
+		}
 	end
 
 	def down
