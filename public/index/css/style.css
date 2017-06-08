@@ -157,6 +157,14 @@ header.navbar .nav li:first-child a {
 #results .ticket .pad {
 	padding: 8px;
 }
+#results .ticket .pad img {
+	width: 252px;
+	height: 124px;
+}
+#results .ticket h4, #results .ticket p {
+	padding-left: 5px;
+	padding-right: 5px;
+}
 #results .ticket h4 {
 	background: #0069ba;
 	color: #fff;
@@ -164,15 +172,14 @@ header.navbar .nav li:first-child a {
 	font-weight: 700;
 	line-height: 21px;
 	text-transform: uppercase;
-}
-#results .ticket h4, #results .ticket p {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	padding-left: 5px;
-	padding-right: 5px;
 }
 #results .ticket .from_to {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	margin-top: 12px;
 	font-size: 15px;
 }
@@ -215,6 +222,12 @@ header.navbar .nav li:first-child a {
 #results .ticket .row > div {
 	padding: 13px 11px 12px;
 	width: auto;
+}
+#results .ticket a img {
+	margin-right: 12px;
+}
+#results .ticket a.first img {
+	margin-right: 7px;
 }
 
 /* -----------------------------
