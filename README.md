@@ -16,7 +16,7 @@ Feito com: Sublime Text 3 Build 3126
 
 ## Heroku
 
-Heroku url: **soon...**
+Heroku url: https://shielded-castle-92348.herokuapp.com/
 
 ## Live Edu
 
