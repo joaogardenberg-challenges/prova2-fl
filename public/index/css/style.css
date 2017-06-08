@@ -33,6 +33,13 @@ header.navbar .nav a {
 	font-weight: 700;
 	letter-spacing: -1px;
 }
+header.navbar .nav a:hover {
+	background: #00a2e0;
+	color: #fff;
+}
+header.navbar .nav a:active {
+	background: #00b9ff;
+}
 header.navbar .nav li:first-child a {
 	margin-right: 10px;
 }
@@ -44,11 +51,20 @@ header.navbar .nav li:first-child a {
 	width: 147px;
 	background: #00adef;
 	text-align: center;
-	padding: 25px 0;
 	float: left;
+	cursor: pointer;
 }
-#sidebar li:not(.first) {
-	margin-top: 25px !important;
+#sidebar ul {
+	margin-top: 13px;
+}
+#sidebar li {
+	padding: 12px 0;
+}
+#sidebar li:hover {
+	background: #00a2e0;
+}
+#sidebar li:active {
+	background: #00b9ff;
 }
 #sidebar p {
 	font-size: 14px;
@@ -231,6 +247,10 @@ footer.navbar .nav li li {
 	color: #aea8a5;
 	font-size: 11px;
 	margin-top: 8px;
+	cursor: pointer;
+}
+footer.navbar .nav li li:hover {
+	color: #807b79;
 }
 footer.navbar .nav li li:first-child {
 	font-size: 18px;
