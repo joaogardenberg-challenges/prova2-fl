@@ -16,9 +16,9 @@ get '/tickets' do
 
 	client = Mysql2::Client.new(
 		host: 'localhost',
-		username: 'root',
-		password: 'linux',
-		database: 'fulllab',
+		username: 'b63406ed458aee',
+		password: '9478b56d',
+		database: 'heroku_00b354e8864d5f4',
 		encoding: 'utf8'
 	)
 
