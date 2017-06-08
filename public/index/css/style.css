@@ -55,7 +55,7 @@ header.navbar .nav li:first-child a {
 	cursor: pointer;
 }
 #sidebar ul {
-	margin-top: 13px;
+	margin: 13px 0;
 }
 #sidebar li {
 	padding: 12px 0;
